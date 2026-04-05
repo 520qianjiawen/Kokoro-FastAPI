@@ -16,13 +16,7 @@ def create_interface():
     disable_local_saving = os.getenv("DISABLE_LOCAL_SAVING", "false").lower() == "true"
 
     with gr.Blocks(title="Kokoro TTS Demo", theme=gr.themes.Monochrome()) as demo:
-        gr.HTML(
-            value='<div style="display: flex; gap: 0;">'
-            '<a href="https://huggingface.co/hexgrad/Kokoro-82M" target="_blank" style="color: #2196F3; text-decoration: none; margin: 2px; border: 1px solid #2196F3; padding: 4px 8px; height: 24px; box-sizing: border-box; display: inline-flex; align-items: center;">Kokoro-82M HF Repo</a>'
-            '<a href="https://github.com/remsky/Kokoro-FastAPI" target="_blank" style="color: #2196F3; text-decoration: none; margin: 2px; border: 1px solid #2196F3; padding: 4px 8px; height: 24px; box-sizing: border-box; display: inline-flex; align-items: center;">Kokoro-FastAPI Repo</a>'
-            "</div>",
-            show_label=False,
-        )
+        # Header badges removed
 
         # Main interface
         with gr.Row():
