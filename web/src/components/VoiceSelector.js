@@ -100,12 +100,29 @@ export class VoiceSelector {
         });
     }
 
+    getFlag(voice) {
+        if (!voice) return '';
+        const lowerVoice = voice.toLowerCase();
+        if (lowerVoice.startsWith('af_') || lowerVoice.startsWith('am_') || lowerVoice.startsWith('en_us')) return '🇺🇸';
+        if (lowerVoice.startsWith('bf_') || lowerVoice.startsWith('bm_') || lowerVoice.startsWith('en_br')) return '🇬🇧';
+        if (lowerVoice.startsWith('jp_') || lowerVoice.startsWith('jf_') || lowerVoice.startsWith('jm_')) return '🇯🇵';
+        if (lowerVoice.startsWith('zh_') || lowerVoice.startsWith('zf_') || lowerVoice.startsWith('zm_')) return '🇨🇳';
+        if (lowerVoice.startsWith('es_') || lowerVoice.startsWith('ef_') || lowerVoice.startsWith('em_')) return '🇪🇸';
+        if (lowerVoice.startsWith('fr_') || lowerVoice.startsWith('ff_')) return '🇫🇷';
+        if (lowerVoice.startsWith('it_') || lowerVoice.startsWith('if_') || lowerVoice.startsWith('im_')) return '🇮🇹';
+        if (lowerVoice.startsWith('pt_') || lowerVoice.startsWith('pf_') || lowerVoice.startsWith('pm_')) return '🇵🇹';
+        if (lowerVoice.startsWith('hi_') || lowerVoice.startsWith('hf_') || lowerVoice.startsWith('hm_')) return '🇮🇳';
+        if (lowerVoice.startsWith('ko_')) return '🇰🇷';
+        return '🌐'; // Default for unknown
+    }
+
     renderVoiceOptions(voices) {
         this.elements.voiceOptions.innerHTML = voices
             .map(voice => `
                 <div class="voice-option ${this.voiceService.getSelectedVoices().includes(voice) ? 'selected' : ''}" 
                      data-voice="${voice}">
-                    ${voice}
+                    <span class="voice-flag">${this.getFlag(voice)}</span>
+                    <span class="voice-name-text">${voice}</span>
                 </div>
             `)
             .join('');
@@ -116,6 +133,7 @@ export class VoiceSelector {
         this.elements.selectedVoices.innerHTML = selectedVoices
             .map(({voice, weight}) => `
                 <span class="selected-voice-tag">
+                    <span class="voice-flag">${this.getFlag(voice)}</span>
                     <span class="voice-name">${voice}</span>
                     <span class="voice-weight">
                         <input type="number" 
