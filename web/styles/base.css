@@ -1,13 +1,13 @@
 :root {
-    --bg-color: #0f172a;
-    --fg-color: #6366f1;
-    --surface: rgba(30, 41, 59, 1);
-    --text: #f8fafc;
-    --text-light: #cbd5e1;
-    --border: rgba(148, 163, 184, 0.2);
-    --error: #ef4444;
-    --success: #22c55e;
-    --font-family: 'Inter', system-ui, sans-serif;
+    --bg-color: #FFFFFF;
+    --fg-color: #FF9500;
+    --surface: #F5F5F7;
+    --text: #1D1D1F;
+    --text-light: #6E6E73;
+    --border: rgba(0, 0, 0, 0.1);
+    --error: #FF3B30;
+    --success: #34C759;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 html {
@@ -40,7 +40,7 @@ body {
     inset: 0;
     background:
         radial-gradient(circle at top right,
-            var(--fg-color) 0%,
+            rgba(255, 255, 255, 0.8) 0%,
             var(--bg-color) 100%);
     pointer-events: none;
     z-index: 0;
@@ -51,13 +51,13 @@ body {
     inset: 0;
     background-image:
         repeating-linear-gradient(0deg,
-            rgba(255,255,255,0.03) 0px,
-            rgba(255,255,255,0.03) 1px,
+            rgba(0, 0, 0, 0.02) 0px,
+            rgba(0, 0, 0, 0.02) 1px,
             transparent 1px,
             transparent 20px),
         repeating-linear-gradient(90deg,
-            rgba(255,255,255,0.03) 0px,
-            rgba(255,255,255,0.03) 1px,
+            rgba(0, 0, 0, 0.02) 0px,
+            rgba(0, 0, 0, 0.02) 1px,
             transparent 1px,
             transparent 20px);
     pointer-events: none;
@@ -119,4 +119,21 @@ main {
     background: rgba(34, 197, 94, 0.1);
     border: 1px solid rgba(34, 197, 94, 0.2);
     opacity: 1;
+}
+
+/* Apple-style soft light glow to replace the purple sun */
+.sun {
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 247, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.scanline {
+    display: none; /* Removing scanlines for a cleaner Apple aesthetic */
 }

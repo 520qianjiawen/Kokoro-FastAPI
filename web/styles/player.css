@@ -24,26 +24,26 @@
 }
 
 .player-controls {
-    display: grid;
-    grid-template-columns: auto minmax(100px, 1fr) auto auto auto;
+    display: flex;
     align-items: center;
     gap: clamp(0.5rem, 1vw, 1rem);
     width: 100%;
-    height: 44px;
-    padding: 0.5rem 0.5rem;
+    min-height: 52px;
+    padding: 0 1rem;
     border-radius: 0.75rem;
-    background: rgba(15, 23, 42, 0.2);
+    background: #FFFFFF; /* High contrast inner bar */
     min-width: 0;
     border: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
     .player-controls {
+        display: grid;
         grid-template-columns: auto 1fr auto;
         grid-template-rows: auto auto;
         height: auto;
         gap: 0.5rem;
-        padding: 0.5rem;
+        padding: 0.75rem;
     }
 
     .volume-control {
@@ -70,7 +70,7 @@
     .player-btn {
         padding: 0.25rem 0.5rem;
         min-width: 45px;
-        height: 26px;
+        height: 28px;
         font-size: 0.875rem;
     }
 }
@@ -80,51 +80,55 @@
     -webkit-appearance: none;
     height: 4px;
     border-radius: 2px;
-    background: rgba(99, 102, 241, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     outline: none;
     cursor: pointer;
     transition: height 0.2s ease-in-out;
 }
 
 .seek-slider {
-    width: 100%;
+    flex: 1;
     min-width: 0;
 }
 
 .volume-slider {
     width: 80px;
+    flex-shrink: 0;
 }
 
 .seek-slider::-webkit-slider-thumb,
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--fg-color);
     cursor: pointer;
     transition: transform 0.2s ease;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .seek-slider::-webkit-slider-thumb:hover,
 .volume-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .seek-slider::-moz-range-thumb,
 .volume-slider::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    border: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #FFFFFF;
     border-radius: 50%;
     background: var(--fg-color);
     cursor: pointer;
     transition: transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .seek-slider::-moz-range-thumb:hover,
 .volume-slider::-moz-range-thumb:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .volume-control {
@@ -132,9 +136,10 @@
     align-items: center;
     gap: 0.5rem;
     padding-left: 0.75rem;
-    border-left: 1px solid rgba(99, 102, 241, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
     min-width: 0;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -149,7 +154,7 @@
     .player-btn {
         padding: 0.375rem 0.75rem;
         min-width: 50px;
-        height: 28px;
+        height: 30px;
         font-size: 0.875rem;
     }
 }
@@ -168,30 +173,31 @@
 
 .player-btn {
     background: var(--fg-color);
-    color: var(--text);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    color: #FFFFFF;
+    padding: 0 1rem;
+    border-radius: 0.6rem;
     border: none;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    height: 32px;
-    display: flex;
+    height: 34px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 60px;
+    min-width: 65px;
+    line-height: 1;
 }
 
 .player-btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
 }
  
 /* Cancel Button Styles */
 .player-btn.cancel {
-    background: #976161;
-    color: #070707;
-    border: 1px solid #ffb3b3;
+    background: #FF3B30;
+    color: #FFFFFF;
+    border: none;
 }
 
 .player-btn.cancel:hover {
@@ -202,7 +208,7 @@
 .wave-container {
     width: 100%;
     height: 60px;
-    background: rgba(15, 23, 42, 0.3);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
@@ -307,7 +313,7 @@
     width: 100%;
     height: 4px;
     margin: 0;
-    background: rgba(99, 102, 241, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 2px;
     position: absolute;
@@ -338,15 +344,18 @@
     text-align: right;
     font-variant-numeric: tabular-nums;
     padding-left: 0.75rem;
-    border-left: 1px solid rgba(99, 102, 241, 0.2);
-    min-width: 70px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    min-width: 90px;
     box-sizing: border-box;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
     .time-display {
         font-size: 0.75rem;
-        min-width: 60px;
+        min-width: 80px;
+        padding-left: 0.5rem;
     }
 }
 
@@ -393,9 +402,9 @@
     inset: -15%;
     background: conic-gradient(
         from 0deg,
-        var(--fg-color),
-        #6366f1,
-        var(--fg-color)
+        #D1D1D6,
+        #F5F5F7,
+        #D1D1D6
     );
     border-radius: 4px;
     animation: rotate 4s linear infinite;
@@ -423,7 +432,7 @@
 }
 
 .download-button:hover .download-icon {
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 0 15px rgba(255, 149, 0, 0.4);
 }
 
 @keyframes rotate {

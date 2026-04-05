@@ -26,12 +26,12 @@
     padding: 0.75rem;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
-    background: rgba(15, 23, 42, 0.3);
+    background: #F5F5F7;
     color: var(--text);
     font-family: var(--font-family);
     font-size: 1rem;
     resize: vertical;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
     min-height: 300px;
     box-sizing: border-box;
     min-width: 0;
@@ -41,8 +41,9 @@
 
 .page-content:focus {
     outline: none;
+    background: #FFFFFF;
     border-color: var(--fg-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 12px rgba(255, 149, 0, 0.2);
 }
 
 .page-navigation {
@@ -52,7 +53,8 @@
     padding: 0.5rem;
     border-bottom: 1px solid var(--border);
     margin-bottom: 0.5rem;
-    background: rgba(15, 23, 42, 0.3);
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border);
     border-radius: 0.5rem 0.5rem 0 0;
 }
 
@@ -111,7 +113,7 @@
 .chars-input:focus {
     outline: none;
     border-color: var(--fg-color);
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .chars-label {
@@ -191,7 +193,7 @@
 /* Scrollbar Styles */
 .text-editor {
     scrollbar-width: thin;
-    scrollbar-color: rgba(99, 102, 241, 0.2) transparent;
+    scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
 }
 
 .text-editor::-webkit-scrollbar {
@@ -199,7 +201,7 @@
 }
 
 .text-editor::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 3px;
 }
 
